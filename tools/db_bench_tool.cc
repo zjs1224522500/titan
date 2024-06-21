@@ -5388,6 +5388,7 @@ class Benchmark {
         write_rate_limiter->Request(
             entries_per_batch_ * (value_size_ + key_size_), Env::IO_HIGH,
             nullptr /* stats */, RateLimiter::OpType::kWrite);
+        thread->stats.ResetLastOpTime();
       }
     }
     thread->stats.AddBytes(bytes);
